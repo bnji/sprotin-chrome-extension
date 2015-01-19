@@ -1,0 +1,173 @@
+
+html, body {
+	color: #000;
+	font-family: arial;
+	font-size: 14px;
+}
+
+a {
+	font-weight: normal;
+	color: #000;
+	font-family: arial;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+#main-area {
+	/*border: 1px solid red;*/
+  	width: 585px;
+}
+
+#sprotin-link {
+	float: right;
+	padding-right: 5px;
+}
+
+a, textarea, input { outline: none; }
+
+.lang-box {
+	float: left;
+	width: 30px;
+	height: 30px;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 15px;
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
+	margin-right:5px;
+	margin-top:5px;
+	cursor: pointer;;
+}
+
+#lang-1 {
+	background-color: #9d9d9e;
+}
+
+#lang-2, #lang-3 {
+	background-color: #0b486b;
+}
+
+#lang-4, #lang-5 {
+	background-color: #7c3f5a;
+}
+
+#lang-6, #lang-7 {
+	background-color: #000;
+}
+
+#lang-10, #lang-20 {
+	background-color: #F38E00;
+}
+
+#lang-11 {
+	background-color: #378687;
+}
+
+#lang-12 {
+	background-color: #FF0000;
+}
+
+#lang-13 {
+	background-color: #B990B2;
+}
+
+#lang-15 {
+	background-color: #B0C749;
+}
+
+
+.spacer-1p {
+	height: 1px;
+}
+
+.spacer-5p {
+	height: 5px;
+}
+
+
+#inputArea {
+  background: -webkit-linear-gradient(#ffffff, #e9e9ea); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#ffffff, #e9e9ea); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#ffffff, #e9e9ea); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#ffffff, #e9e9ea); /* Standard syntax */
+  border: 1px solid #e9e9ea;
+  max-width: 600px;
+}
+
+#textTranslate {
+    height: 25px;
+    width: 505px;
+    /*background: url('search_inverse.png') no-repeat 0 0;
+    background-position: 100% 50%;*/
+    padding:10px;
+    background: -webkit-linear-gradient(#ffffff, #e9e9ea); /* For Safari 5.1 to 6.0 */
+	background: -o-linear-gradient(#ffffff, #e9e9ea); /* For Opera 11.1 to 12.0 */
+	background: -moz-linear-gradient(#ffffff, #e9e9ea); /* For Firefox 3.6 to 15 */
+	background: linear-gradient(#ffffff, #e9e9ea); /* Standard syntax */
+	border:0;
+	font-size: 16px;
+}
+
+#translate {
+	width: 25px;
+}
+
+#translate img {
+	vertical-align: middle;
+}
+
+#clear-input {
+	width: 25px;
+}
+
+#clear-input img {
+	vertical-align: middle;
+}
+
+#searchBox {
+	/*border:1px solid red;*/
+	max-width: 585px;
+}
+
+#results-box {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#select-language a {
+	font-weight: normal;
+	color: #fff;
+	font-family: arial;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.get-info {
+	font-weight: bold;
+	color: #00f;
+	font-family: arial;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.item {
+
+}
+
+.item .item-number {
+	font-weight: bold;
+	color: #000;
+	font-family: arial;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.item-spacer {
+	height: 25px;
+}
