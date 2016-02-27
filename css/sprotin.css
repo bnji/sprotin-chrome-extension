@@ -1,4 +1,3 @@
-
 html, body {
 	color: #000;
 	font-family: arial;
@@ -26,10 +25,45 @@ a {
 a, textarea, input { outline: none; }
 
 .lang-box {
+	padding-top: 7px;
+}
+
+.arrow-down:after,
+.arrow-down:after {
+	z-index: -1;
+	position: absolute;
+    top: 100%;
+    left: 0%;
+    content: '';
+    margin-left: 30%;
+    width: 0;
+    height: 0;
+    border-top: solid 7px #9d9d9e;
+    border-left: solid 9px transparent;
+    border-right: solid 9px transparent;
+}
+
+.navi,
+.infoi {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.infoi {
+    z-index: 10;
+	text-align: center;
+    margin-top: 53px;
+    margin-left: 1px;
+}
+
+.container {
+    position: relative;
 	float: left;
 	width: 30px;
 	height: 30px;
-	padding: 5px;
+	padding: 4px;
 	text-align: center;
 	vertical-align: middle;
 	line-height: 15px;
@@ -38,43 +72,76 @@ a, textarea, input { outline: none; }
 	align-items: center; /* align vertical */
 	margin-right:5px;
 	margin-top:5px;
-	cursor: pointer;;
+	cursor: pointer;
+	position:relative;
+	/*background-color:#e15915;*/
 }
 
 #lang-1 {
 	background-color: #9d9d9e;
 }
+#lang-1:after {
+    border-top: solid 7px #9d9d9e;
+}
 
 #lang-2, #lang-3 {
 	background-color: #0b486b;
+}
+#lang-2:after,
+#lang-3:after {
+    border-top: solid 7px #0b486b;
 }
 
 #lang-4, #lang-5 {
 	background-color: #7c3f5a;
 }
+#lang-4:after,
+#lang-5:after {
+    border-top: solid 7px #7c3f5a;
+}
 
 #lang-6, #lang-7 {
 	background-color: #000;
+}
+#lang-6:after,
+#lang-7:after {
+    border-top: solid 7px #000;
 }
 
 #lang-10, #lang-20 {
 	background-color: #F38E00;
 }
+#lang-10:after,
+#lang-20:after {
+    border-top: solid 7px #F38E00;
+}
 
 #lang-11 {
 	background-color: #378687;
+}
+#lang-11:after {
+    border-top: solid 7px #378687;
 }
 
 #lang-12 {
 	background-color: #FF0000;
 }
+#lang-12:after {
+    border-top: solid 7px #FF0000;
+}
 
 #lang-13 {
 	background-color: #B990B2;
 }
+#lang-13:after {
+    border-top: solid 7px #B990B2;
+}
 
 #lang-15 {
 	background-color: #B0C749;
+}
+#lang-15:after {
+    border-top: solid 7px #B0C749;
 }
 
 
@@ -84,6 +151,10 @@ a, textarea, input { outline: none; }
 
 .spacer-5p {
 	height: 5px;
+}
+
+.spacer-15p {
+	height: 15px;
 }
 
 
@@ -132,8 +203,9 @@ a, textarea, input { outline: none; }
 }
 
 #results-box {
-  padding-left: 5px;
-  padding-right: 5px;
+	padding-top:15px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 #select-language a {

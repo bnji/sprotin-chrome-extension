@@ -24,14 +24,17 @@ function getDictionaryId() {
   return 1;
 }
 
+var currentElement = null;
+
 $(function(){
 
   clearInput();
 
+  currentElement = $("#first");
+
   $("#select-language div").click(function(e) {
     e.preventDefault();
-    var id = $(this).find("a").data('lang-id');
-    setDictionaryId(id);
+    currentElement = $(this);
     translate();
   });
 
@@ -73,15 +76,40 @@ $(function(){
 });
 
 function translate() {
-  translate2(getInput());
+    $('.lang-box').removeClass('arrow-down');
+    // console.log(currentElement);
+    currentElement.find('.lang-box').addClass('arrow-down');
+    var id = currentElement.find("a").data('lang-id');
+    setDictionaryId(id);
+    $("#select-language").find('.infoi').text("");
+    translate2(function(data) {
+      if(data && data['total']) {
+        var resultCount = data['total'];
+        if(!isNaN(resultCount)) {
+          currentElement.find('.infoi').text(resultCount);
+        }
+      }
+      else {
+        currentElement.find('.infoi').text("0");
+      }
+    }, function(error) {
+      // self.find('.infoi').text("0");
+    });
+}
+
+function translate2(successCallback, errorCallback) {
+  performTranslation(getInput(), successCallback, errorCallback);
 };
 
-function translate2(searchFor) {
+function performTranslation(searchFor, successCallback, errorCallback) {
+  //http://sprotin.fo/dictionary_search_json.php?DictionaryId=1&DictionaryPage=1&SearchFor=hey&SearchDescription=0&SkipOtherDictionariesResults=0&SkipSimilarWords=0
+  //http://sprotin.fo/dictionary_search_json.php?DictionaryId=1&DictionaryPage=1&SearchFor=hey&SearchDescription=0&SkipOtherDictionariesResults=0&SkipSimilarWords=0&SearchIn=searchword&SearchMatches=partial&SearchCase=insensitive
   var url = "http://sprotin.azurewebsites.net/index.php";
   var data = {
     'DictionaryId' : getDictionaryId(),
     'DictionaryPage': 1,
     'SearchFor': searchFor,
+    'SearchDescription': 0,
     'SkipOtherDictionariesResults' : 0,
     'SkipSimilarWords' : 0,
     'SearchIn' : 'searchword',
@@ -97,8 +125,13 @@ function translate2(searchFor) {
       timeout: 30000,
       dataType: "json",
       success: function(data) {
+        // console.log(data);
+        if(successCallback) {
+          successCallback(data);
+        }
         $("#results").html("");
         if(data.words.length == 0) {
+          $(".infoi").html("");
           $("#results").html("Ongin úrslit!");
         }
         $.each(data.words, function(i,word) {
@@ -115,7 +148,10 @@ function translate2(searchFor) {
         });
       },
       error: function(jqXHR, textStatus, ex) {
-          console.log("error: " + textStatus + "," + ex + "," + jqXHR.responseText);
+        if(errorCallback) {
+          errorCallback();
+        }
+        console.log("error: " + textStatus + "," + ex + "," + jqXHR.responseText);
       }
   });
 }
